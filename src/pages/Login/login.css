@@ -1,0 +1,21 @@
+.login {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.left {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.identity {
+  padding-top: 10%;
+}
+.identity-text {
+  font-size: 2.5em;
+  font-weight: 600;
+  flex-wrap: wrap;
+  color: #4f4f4f;
+}
