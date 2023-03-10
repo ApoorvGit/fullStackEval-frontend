@@ -11,7 +11,6 @@ import deleteIcon from '../../assets/delete.png';
 import Logout from '../../components/Logout';
 
 export default function EditScreen({ selectedType, setSelectedType }) {
-  // console.log(selectedType);
   const [newFieldName, setNewFieldName] = React.useState('');
   const [updatedTypeName, setUpdatedTypeName] = React.useState('');
   const newFieldHandler = e => {
@@ -56,7 +55,6 @@ export default function EditScreen({ selectedType, setSelectedType }) {
       });
   };
   const deleteFieldHandler = (contentTypeName, fieldName) => {
-    console.log(contentTypeName, fieldName);
     axios
       .delete(`http://localhost:8000/delete/field/${contentTypeName}`, {
         headers: { authorization: `Bearer ${localStorage.getItem('token')}` },

@@ -13,21 +13,16 @@ export default function CollectionListScreen({ contentType }) {
   const [fields, setFields] = React.useState([]);
   const handleAddNewEntrySubmit = e => {
     e.preventDefault();
-    // console.log('abcd');
     const data = {};
     const formData = new FormData(e.target);
-    console.log('formdata', formData);
     for (let [key, value] of formData.entries()) {
       data[key] = value;
     }
-    console.log('data', data);
     axios
       .post(`http://localhost:8000/add/collection/${contentType}`, data, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then(response => {
-        // console.log(response.data);
-        // console.log('collections', collections);
         setCollections([...collections, { id: response.data, values: JSON.stringify(data) }]);
       });
   };
@@ -38,7 +33,6 @@ export default function CollectionListScreen({ contentType }) {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then(response => {
-        console.log(response.data);
         setCollections(collections.filter(collection => collection.id !== id));
       });
   };
@@ -49,7 +43,6 @@ export default function CollectionListScreen({ contentType }) {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then(response => {
-        console.log('collection', response.data[0].values);
         setCollections(response.data);
       });
     axios
@@ -57,7 +50,6 @@ export default function CollectionListScreen({ contentType }) {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then(response => {
-        console.log('fields', response.data.fields);
         setFields(response.data.fields);
       });
   }, []);
@@ -65,7 +57,6 @@ export default function CollectionListScreen({ contentType }) {
     e.preventDefault();
     const data = {};
     const formData = new FormData(e.target);
-    console.log('formdata', formData);
     let id = null;
     for (let [key, value] of formData.entries()) {
       if (key !== 'id') {
@@ -74,15 +65,11 @@ export default function CollectionListScreen({ contentType }) {
         id = value;
       }
     }
-    // console.log(id);
-    // console.log('data', data);
     axios
       .patch(`http://localhost:8000/update/collection/${id}`, data, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then(() => {
-        // console.log(response.data);
-        // console.log('collections', collections);
 
         setCollections([
           ...collections.filter(collection => collection.id != id),
@@ -163,9 +150,7 @@ export default function CollectionListScreen({ contentType }) {
             {Object.values(JSON.parse(collection.values)).map((value, index) => (
               <div className="collection-list-item-value">{value}</div>
             ))}
-            {/* {collection.values.map(field => (
-              <div className="collection-list-item-value">{field}</div>
-            ))} */}
+
             <div className="collection-list-item-value">
               <Popup
                 contentStyle={{

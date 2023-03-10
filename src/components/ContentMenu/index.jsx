@@ -26,7 +26,6 @@ export default function ContentMenu({ contentTypes, setContentTypes, setSelected
       });
   };
   const contentTypeButtonHandler = selectedType => {
-    // console.log(selectedType);
     setSelectedType(selectedType);
   };
   return (
