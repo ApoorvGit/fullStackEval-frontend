@@ -9,7 +9,6 @@ import CollectionListScreen from '../../components/CollectionListScreen';
 
 export default function CollectionPage() {
   const { contentType } = useParams();
-  console.log('contenttype', contentType);
   const [contentTypes, setContentTypes] = React.useState([]);
   const [selectedType, setSelectedType] = React.useState({});
   React.useEffect(() => {
