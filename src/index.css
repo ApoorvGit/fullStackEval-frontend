@@ -1,15 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Display:wght@700&family=Montserrat&family=Raleway:wght@100&family=Sofia+Sans:wght@600&display=swap');
 * {
-  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Montserrat', sans-serif;
 }
-
-html {
-  font-family: 'Noto Sans JP', sans-serif;
-}
-
-body {
-  margin: 0;
-  background-color: #3f3f3f;
-}
-
